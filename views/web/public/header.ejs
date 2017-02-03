@@ -1,0 +1,69 @@
+<!--网站的导航-->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="header">
+    <!--定宽居中-->
+    <div class="container">
+        <div class="navbar-header">
+            <!--data-* 添加交互-->
+            <!--data-toggle 添加事件
+            data-target 指定事件的目标，在这里是通过id绑定导航栏-->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--首页链接-->
+            <a class="navbar-brand" href="/"><img id="logo" src="/images/steam_logo.png" alt=""></a>
+        </div>
+        <!--导航条上面不同的选项-->
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <!--active 选中时的样式，默认选中首页-->
+                <li><a href="/archive" title="发布记录">记录</a></li>
+                <% if (user) { %>
+                <li><a href="/post" title="发表文章">发表</a></li>
+                <li><a href="/logout" title="退出登录">登出</a></li>
+                <%  } else { %>
+                <li><a href="/login" title="登录">登录</a></li>
+                <li><a href="/reg" title="注册">注册</a></li>
+                <% } %>
+            </ul>
+            <% if (user) { %>
+            <ul class="navbar-nav nav navbar-right">
+                <li class="navlogo"><img id="logo"  src="/uploads/<%= user.imgUrl %>" alt="#" onerror="this.src='uploads/default.jpg'"></li>
+                <li><a href="/home?userName=<%= user.name %>"><%= user.name %></a></li>
+            </ul>
+            <% } %>
+        </div>
+    </div>
+</nav>
+<div class="masthead container col-md-8 col-md-offset-2">
+    <ul class="nav nav-justified">
+        <li><a href="/home" class="Nav-color" title="个人资料">你的资料</a></li>
+        <li><a href="/u/hot291527060" class="Nav-color" title="文章列表">文章</a></li>
+        <li><a href="/images" class="Nav-color" title="图片鉴赏">图片</a></li>
+        <li><a href="/tags" class="Nav-color" title="文章标签">标签</a></li>
+        <li><a href="/about" class="Nav-color">关于</a></li>
+        <li>
+            <div class="row search">
+                <div class="text-center" id="searchbox">
+                    <form class="input-group" action="/search" method="get">
+                        <input type="text" class="form-control" name="keyword" placeholder="搜索文章">
+                        <span class="input-group-btn">
+                            <button id="searchbutton" class="btn" type="submit">
+                                <ul class="glyphicon glyphicon-search"></ul>
+                            </button>
+                        </span>
+                    </form>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="text-center">
+    <% if (success) { %>
+    <div id="success"><%= success %></div>
+    <% } %>
+    <% if (error) { %>
+    <div id="error"><%= error %></div>
+    <% } %>
+</div>

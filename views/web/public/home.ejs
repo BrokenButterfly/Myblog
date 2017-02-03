@@ -1,0 +1,75 @@
+<!--网站的导航-->
+<nav class="navbar navbar-inverse navbar-fixed-top" id="header">
+    <!--定宽居中-->
+    <div class="container">
+        <div class="navbar-header">
+            <!--data-* 添加交互-->
+            <!--data-toggle 添加事件
+            data-target 指定事件的目标，在这里是通过id绑定导航栏-->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <!--首页链接-->
+            <a class="navbar-brand" href="/"><img id="logo" src="/images/steam_logo.png" alt=""></a>
+        </div>
+        <!--导航条上面不同的选项-->
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <!--active 选中时的样式，默认选中首页-->
+                <li><a href="/archive" title="发布记录">记录</a></li>
+                <% if (user) { %>
+                <li><a href="/post" title="发表文章">发表</a></li>
+                <li><a href="/logout" title="退出登录">登出</a></li>
+                <%  } else { %>
+                <li><a href="/login" title="登录">登录</a></li>
+                <li><a href="/reg" title="注册">注册</a></li>
+                <% } %>
+            </ul>
+            <ul class="navbar-nav nav navbar-right">
+                <li class="navlogo"><img id="logo"  src="/uploads/<%= user.imgUrl %>" alt="#" onerror="this.src='uploads/default.jpg'"></li>
+                <li><a href="/home?userName=<%= user.name %>"><%= user.name %></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="homeContent">
+    <div class="home text-left">
+        <article>
+            <% if (success) { %>
+            <div id="success"><%= success %></div>
+            <% } %>
+            <% if (error) { %>
+            <div id="error"><%= error %></div>
+            <% } %>
+        </article>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group profile_header">
+                <img id="userlogo" src="/uploads/<%= user.imgUrl %>" alt="#" onerror="this.src='uploads/default.jpg'">
+                <label for=""><%= user.name %></label>
+                <input type="file" name="photo" id="photo" class="form-control" value="<%= currentUser.imgUrl %>">
+            </div>
+            <!--<div class="homeOne">-->
+                <!--<label for="" class="hometitle">用户名：</label>-->
+                <!--<input type="text" name="name" id="name" class="form-control homeInput" value="<%= currentUser.name %>" disabled="disabled">-->
+            <!--</div>-->
+            <div class="homeOne">
+                <label for="" class="hometitle">邮箱：</label><br>
+                <input type="text" name="email" id="email" class="form-control homeInput" value="<%= currentUser.email %>">
+            </div>
+            <div class="homeOne">
+                <label for="" class="hometitle">QQ</label><br>
+                <input type="text" name="qq" id="qq" class="form-control homeInput" value="<%= currentUser.qq %>">
+            </div>
+            <div class="homeOne">
+                <label for="" class="hometitle">联系电话</label><br>
+                <input type="text" name="phone" id="phone" class="form-control homeInput" value="<%= currentUser.phone %>">
+            </div>
+            <br>
+            <br>
+            <a href="/" type="submit" class="btn btn-default">返回</a>
+            <button type="submit" class="btn btn-primary">保存修改</button>
+        </form>
+    </div>
+</div>

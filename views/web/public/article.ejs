@@ -1,0 +1,37 @@
+<!--用户的文章-->
+<div>
+  <p>
+      <% if (user && (user.name == post.name)) { %>
+    <span>
+    <a class="edit" href="/edit/<%= post.name %>/<%= post.time.minute %>/<%= post.title %>">编辑</a>
+  </span>
+    <span>
+    <a class="edit" href="/remove/<%= post.name %>/<%= post.time.minute %>/<%= post.title %>">删除</a>
+  </span>
+    <span>
+    <a class="edit" href="/">返回</a>
+  </span>
+      <%  } else { %>
+    <span>
+    <a class="edit" href="/">返回</a>
+  </span>
+      <% } %>
+  </p>
+  <div class="passage">
+    <p class="info">
+      作者：<img id="logo" src="/uploads/<%= post.imgUrl %>" alt="#" onerror="this.src='uploads/default.jpg'"><br>
+      <a href="/u/<%= post.name %>"><%= post.name %></a> |
+      日期：<%= post.time.minute %> |
+      标签：
+        <% post.tags.forEach(function (tag, index) { %>
+        <% if (tag) { %>
+      <a class="tag" href="/tags/<%= tag %>"><%= tag %></a>
+        <% } %>
+        <% }) %>
+    </p>
+    <div>
+      <p><%- post.post %></p>
+    </div>
+  </div>
+  <p class="infos">阅读：<%= post.pv %> | 评论：<%= post.comments.length %></p>
+</div>

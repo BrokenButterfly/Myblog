@@ -1,0 +1,27 @@
+<div class="body">
+  <div class="col-md-8 col-md-offset-2">
+    <h3 class="text-muted">最新文章</h3>
+  <article>
+      <% posts.forEach(function (post, index) { %>
+    <div class="passage">
+    <p><h2><a href="/u/<%= post.name %>/<%= post.time.minute %>/<%= post.title %>"><%= post.title %></a></h2></p>
+    <p class="info">
+      作者：<img id="logo" src="/uploads/<%= post.imgUrl %>" alt="#" onerror="this.src='uploads/default.jpg'"><br>
+      <a href="/u/<%= post.name %>"><%= post.name %></a> |
+      日期：<%= post.time.minute %>
+      标签：
+        <% post.tags.forEach(function (tag, index) { %>
+        <% if (tag) { %>
+      <a class="tag" href="/tags/<%= tag %>"><%= tag %></a>
+        <% } %>
+        <% }) %>
+    </p>
+    <div>
+      <p><%- post.post %></p>
+    </div>
+    </div>
+    <p class="infos">阅读：<%= post.pv %> | 评论：<%= post.comments.length %></p>
+      <% }) %>
+  </article>
+  </div>
+</div>

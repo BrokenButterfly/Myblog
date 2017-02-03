@@ -1,0 +1,5 @@
+<!--所有标签-->
+<h3 class="text-muted">标签一览</h3>
+<% posts.forEach(function (tag, index) { %>
+<a style="margin-top: 5rem;" class="tag" href="/tags/<%= tag %>"><%= tag %></a>
+<% }) %>

@@ -1,0 +1,52 @@
+<!--用户注册模块-->
+<div class="regBoard">
+  <div class="page-header text-primary">
+    <h1 class="logo text-center slideDown">Blog</h1>
+    <h2 class="subtitle text-center slideUp">Welcome</h2>
+  </div>
+  <!--登录和注册的链接-->
+  <div class="index-tab-navs">
+    <div class="navs-slider text-center" id="a-User">
+      <a href="/reg" class="active bigEntrance">注册</a>
+      <a href="/login" class="bigEntrance">登录</a>
+    </div>
+  </div>
+  <article>
+      <% if (success) { %>
+    <div id="success"><%= success %></div>
+      <% } %>
+      <% if (error) { %>
+    <div id="error"><%= error %></div>
+      <% } %>
+  </article>
+  <!--注册的表单-->
+  <form method="post" novalidate class="text-success">
+    <small class="text-danger hide" id="errorInfo">注册失败</small>
+    <div class="form-group">
+      <input type="text" class="form-control" name="name" id="userName" ng-minlength="5" ng-maxlength="12" placeholder="请输入用户名" required/>
+      <label id="userError" > 首字必须为字母，且长度为6-16</label>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" name="password" id="userPassword" ng-maxlength="12" placeholder="请输入密码" required/>
+      <label id="passwordError" > 密码长度为6-16位</label>
+    </div>
+    <div class="form-group">
+      <input type="password" class="form-control" pw-check="userPassword" id="password-repeat" name="password-repeat" placeholder="请再次输入密码" ng-maxlength="12" required/>
+      <label id="password-repeatError" > 密码长度为6-16位</label>
+    </div>
+    <div class="form-group">
+      <input type="email" class="form-control" name="email" id="email" placeholder="请输入邮箱" required/>
+      <label id="emailError" > 请填写正确的邮箱</label>
+    </div>
+    <div class="form-group">
+      <input type="phone" class="form-control" name="phone" id="phone" placeholder="请输入电话" required/>
+      <label id="phoneError" > 请填写正确的电话号码</label>
+    </div>
+    <div class="form-group">
+      <input type="qq" class="form-control" name="qq" id="qq" placeholder="请输入QQ" required/>
+      <label id="qqError" > 请填写正确的QQ号码</label>
+    </div>
+    <button type="submit" class="btn btn-block btn-lg btn-primary slideExpandUp" role="button">注册</button>
+    <small><a href="/" class="bigEntrance">返回</a></small>
+  </form>
+</div>

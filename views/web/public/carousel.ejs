@@ -1,0 +1,79 @@
+<!--轮播图-->
+<div class="container" id="myCarousel">
+  <div class="col-md-8 col-md-offset-2">
+    <h3 class="text-muted">精选推荐</h3>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <!--轮播图指示灯-->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+      </ol>
+
+      <!--轮播图的资源-->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <!--图片-->
+          <img src="/images/Dark-Souls-01.jpg" alt="...">
+          <!--图片的描述-->
+          <div class="carousel-caption">
+            <h3>Dark-Souls</h3>
+          </div>
+        </div>
+        <div class="item">
+          <img src="/images/Dark-Souls-02.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3>Dark-Souls</h3>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="/images/Dark-Souls-03.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3>Dark-Souls</h3>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="/images/Dark-Souls-04.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3>Dark-Souls</h3>
+          </div>
+        </div>
+        <div class="item">
+          <img src="/images/Dark-Souls-05.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3>Dark-Souls</h3>
+          </div>
+        </div>
+        <div class="item">
+          <img src="/images/Dark-Souls-06.jpg" alt="...">
+          <div class="carousel-caption">
+            <h3>Dark-Souls</h3>
+          </div>
+        </div>
+
+
+      </div>
+
+      <!--上一张按钮-->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </a>
+      <!--下一张-->
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </div>
+</div>
+<script>
+    // 设置轮播图的时间间隔， 单位：ms毫秒
+    $('.carousel').carousel({
+        interval: 2000
+    })
+</script>

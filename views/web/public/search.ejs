@@ -1,0 +1,9 @@
+<!--搜索结果页面-->
+<h3 class="text-muted">搜索结果</h3>
+<ul class="archive text-success">
+  <% posts.forEach(function(post,index){%>
+  <li><%= post.time.day %></li>
+  <li><a href="/u/<%= post.name %>/<%= post.time.minute %>/<%= post.title %>"><%= post.title %></a></li>
+  <li>作者：<a href="/u/<%= post.name %>"><%= post.name %></a></li>
+  <% }) %>
+</ul>

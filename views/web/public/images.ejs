@@ -1,0 +1,110 @@
+<div id="myImg" class="carousel slide">
+  <!--居中-->
+  <div class="col-md-10 col-md-offset-1">
+    <!-- 轮播（Carousel）缩略图 -->
+    <div id="smimg">
+      <ul>
+        <li><img src="/images/Dark-Souls-01.jpg" class="img-responsive smone" alt=""></li>
+        <li><img src="/images/Dark-Souls-02.jpg" class="img-responsive smtwo" alt=""></li>
+        <li><img src="/images/Dark-Souls-03.jpg" class="img-responsive smthre" alt=""></li>
+        <li><img src="/images/Dark-Souls-04.jpg" class="img-responsive smfour" alt=""></li>
+        <li><img src="/images/Dark-Souls-05.jpg" class="img-responsive smfive" alt=""></li>
+        <li><img src="/images/Dark-Souls-06.jpg" class="img-responsive smsix" alt=""></li>
+      </ul>
+    </div>
+    <!-- 轮播（Carousel）项目 -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="/images/Dark-Souls-01.jpg" alt="First slide">
+    </div>
+    <div class="item">
+      <img src="/images/Dark-Souls-02.jpg" alt="Second slide">
+    </div>
+    <div class="item">
+      <img src="/images/Dark-Souls-03.jpg" alt="Third slide">
+    </div>
+    <div class="item">
+      <img src="/images/Dark-Souls-04.jpg" alt="Fourth slide">
+    </div>
+    <div class="item">
+      <img src="/images/Dark-Souls-05.jpg" alt="Fifth slide">
+    </div>
+    <div class="item">
+      <img src="/images/Dark-Souls-06.jpg" alt="Sixth slide">
+    </div>
+  </div>
+  <!-- 轮播（Carousel）导航 -->
+  <a class="carousel-control left" href="#myCarousel"
+     data-slide="prev" id="myLast">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel"
+     data-slide="next" id="myNext">&rsaquo;</a>
+    <!-- 控制按钮 -->
+    <ul class="nav nav-justified">
+      <li><a href="#" class="Nav-color start-slide">开始</a></li>
+      <li><a href="#" class="Nav-color pause-slide">暂停</a></li>
+      <li><a href="#" class="Nav-color prev-slide" >上一张</a></li>
+      <li><a href="#" class="Nav-color next-slide" >下一张</a></li>
+      <li><a href="#" class="Nav-color slide-one">第一张</a></li>
+      <li><a href="#" class="Nav-color slide-two">第二张</a></li>
+      <li><a href="#" class="Nav-color slide-three">第三张</a></li>
+      <li><a href="#" class="Nav-color back">返回</a></li>
+    </ul>
+  </div>
+</div>
+<script>
+    $(function(){
+        // 初始化轮播
+        $(".start-slide").click(function(){
+            $("#myImg").carousel('cycle');
+        });
+        // 停止轮播
+        $(".pause-slide").click(function(){
+            $("#myImg").carousel('pause');
+        });
+        // 循环轮播到上一个项目
+        $(".prev-slide").click(function(){
+            $("#myImg").carousel('prev');
+        });
+        $("#myLast").click(function(){
+            $("#myImg").carousel('prev');
+        });
+        // 循环轮播到下一个项目
+        $(".next-slide").click(function(){
+            $("#myImg").carousel('next');
+        });
+        $("#myNext").click(function(){
+            $("#myImg").carousel('next');
+        });
+        // 循环轮播到某个特定的帧
+        $(".slide-one").click(function(){
+            $("#myImg").carousel(0);
+        });
+        $(".slide-two").click(function(){
+            $("#myImg").carousel(1);
+        });
+        $(".slide-three").click(function(){
+            $("#myImg").carousel(2);
+        });
+        $(".back").click(function(){
+            window.location.href="/";
+        });
+        $(".smone").click(function(){
+            $('#myImg').carousel(0);
+        });
+        $(".smtwo").click(function(){
+            $('#myImg').carousel(1);
+        });
+        $(".smthree").click(function(){
+            $('#myImg').carousel(2);
+        });
+        $(".smfour").click(function(){
+            $('#myImg').carousel(3);
+        });
+        $(".smfive").click(function(){
+            $('#myImg').carousel(4);
+        });
+        $(".smsix").click(function(){
+            $('#myImg').carousel(5);
+        });
+    });
+</script>

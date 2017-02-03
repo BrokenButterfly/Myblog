@@ -1,0 +1,48 @@
+<div class="comment">
+    <h3 class="text-muted">文章留言</h3>
+    <br>
+    <!--留言的展示-->
+    <div class="commentboxAll">
+        <% post.comments.forEach(function(comment){ %>
+        <div class="commentboxOne">
+            <p>
+                <img id="logo" src="/uploads/<%= user.imgUrl %>" alt="#" onerror="this.src='uploads/default.jpg'"><br>
+                <%= user.name %>
+                <span class="info"> 回复于 <%= comment.time %></span>
+            </p>
+            <p><%- comment.content %></p>
+        </div>
+        <% }) %>
+    </div>
+    <!--添加留言的表单-->
+    <% if (user) { %>
+    <form method="post" action="/comment/<%= post.name %>/<%= post.time.minute %>/<%= post.title %>">
+        用户：<%= user.name %>
+        <input type="hidden" name="name" value="<%= user.name %>" disabled="disabled" /><br><br/>
+        <textarea name="content" rows="5" cols="100" placeholder="留言："></textarea><br />
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary">留言</button>
+            <a href="/" type="submit" class="btn btn-default">返回</a>
+        </div>
+    </form>
+    <% }else{ %>
+    <form method="post">
+        回应请先<a href="/login">登录</a>或<a href="/reg">注册</a><br>
+        <textarea name="content" rows="5" cols="80" id="tb"></textarea><br />
+        <button type="submit" class="btn btn-primary">留言</button>
+    </form>
+    <% } %>
+</div>
+<script>
+    window.onload = function(){
+        var textarea = document.querySelector('#tb');
+        var button = document.querySelector('#sb');
+        button.onclick = function(e){
+            e.preventDefault();
+            location.href = '/login';
+        }
+        textarea.onfocus =function(){
+            location.href = '/login';
+        }
+    }
+</script>
