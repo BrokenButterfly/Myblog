@@ -207,7 +207,7 @@ module.exports = function(app){
         }
         //添加一下标签信息
         var tags = [req.body.tag1,req.body.tag2,req.body.tag3];
-        var post = new Post(currentUser.name,req.body.title,tags,req.body.post);
+        var post = new Post(currentUser.name,req.body.title,tags,req.body.post,currentUser.imgUrl);
         post.save(function(err){
             if(err){
                 req.flash('error',err);
